@@ -1,0 +1,20 @@
+/* ALL */
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
+
+*{
+    font-family: 'Exo 2', sans-serif;
+}
+
+
+/* NAVBAR */
+svg {
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+.dropdown-toggle::after {
+    visibility: hidden;
+}
