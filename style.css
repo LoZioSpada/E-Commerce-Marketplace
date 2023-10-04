@@ -6,7 +6,13 @@
 }
 
 body {
-  background-color: blueviolet !important;
+  background-color: rgb(134, 86, 179) !important;
+}
+
+img{
+  width: 100%;
+  aspect-ratio: 1/1.7;
+  object-fit: fill;
 }
 
 /* NAVBAR */

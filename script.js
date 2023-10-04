@@ -4,39 +4,48 @@ const url = "https://striveschool-api.herokuapp.com/api/product/"
 let contenuto = document.querySelector('.products .row')
 
 // //CARICAMENTO DELLA PAGINA
-contenuto.innerHTML = /*html*/
-    `
-<div class="container pc">
-	<div class="loader"></div>
-	<div class="loader"></div>
-	<div class="loader"></div>
-</div>
+// contenuto.innerHTML = /*html*/
+//     `
+// <div class="container pc">
+// 	<div class="loader"></div>
+// 	<div class="loader"></div>
+// 	<div class="loader"></div>
+// </div>
 
-`
+// `
 
 
 
 // FUNZIONE CHE ANDRÀ A POPOLARE LA PAGINA CON CIÒ CHE IO ANDRÒ AD INSERIRE NELL'ENDPOINT
 const getProducts = async () => {
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFjNTM5YzM5MzI3YzAwMThkM2EyZTQiLCJpYXQiOjE2OTYzNTUyMjgsImV4cCI6MTY5NzU2NDgyOH0.C0j8PM2EFXdAsuRqqVA3LRQieDwSkG5G22Z_UDkCoJQ'
-        }
-    })
-    const result = await response.json()
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFjNTM5YzM5MzI3YzAwMThkM2EyZTQiLCJpYXQiOjE2OTYzNTUyMjgsImV4cCI6MTY5NzU2NDgyOH0.C0j8PM2EFXdAsuRqqVA3LRQieDwSkG5G22Z_UDkCoJQ'
+            }
 
-    contenuto.innerHTML = result.map((data) => {
+        })
+        const result = await response.json()
+        return result
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+const displayProduct = (result) => {
+    contenuto.innerHTML = result.map((result) => {
         // CREAZIONE CARD CHE ANDRANNO A POPOLARE LA PAGINA
         return /*html*/ `
         <div class="col-6 col-md-3">
-                    <div class="card mb-5" id="product_${data._id}">
-                        <img src='${data.imageUrl}' class="card-img-top">
+                    <div class="card mb-5" id="product_${result._id}">
+                        <img src='${result.imageUrl}' class="card-img-top">
                         <div class="card-body p-1">
-                            <h5 class="card-title">${data.name}</h5>
-                            <p class="card-text">Brand: ${data.brand}</p>
-                            <p class="card-text">${data.description}</p>
-                            <p class="card-text"> Prezzo: ${data.price}</p>
+                            <h5 class="card-title">${result.name}</h5>
+                            <p class="card-text">Brand: ${result.brand}</p>
+                            <p class="card-text">${result.description}</p>
+                            <p class="card-text"> Prezzo: ${result.price}</p>
                             <div class="d-flex justify-content-around align-items-center pb-1 px-1">
                                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
                                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -60,16 +69,17 @@ const getProducts = async () => {
                     </div>
                 </div> `
     }).join('')
-        .finally(() => { contenuto.querySelector('.pc').remove() })
+    .finally(() => { contenuto.querySelector('.pc').remove() })
 }
 
 
 //AL CARICAMENTO DELLA PAGINA, DEVO POTER VEDERE TUTTI I PRODOTTI
-window.onload = () => {
+window.onload = async () => {
     try {
-        getProducts()
+        const products = await getProducts();
+        displayProduct(products)
     } catch (error) {
-        alert("Something went wrong")
+        alert("Something went wrong!!!")
     }
 }
 
@@ -112,11 +122,28 @@ const svuotaCarrello = () => {
 const loginAdmin = (event) => {
     let username = document.querySelector('#username')
     let password = document.querySelector('#password')
-    let signIn = document.querySelector('#signIn')
+    let login = document.querySelector('#login')
 
     if (username.value === "admin" && password.value === "password") {
-        signIn = window.location.href = "backoffice/backoffice.html"
+        login = window.location.href="backoffice/backoffice.html"
     } else {
         alert("An invalid username and/or password has been entered! Try again")
     }
+}
+
+
+// FUNZIONE CHE PERMETTE DI EFFETTUARE LA RICERCA
+const searchProduct = (event) => {
+    let query = event.target.value
+    let tuttiProdotti = document.querySelectorAll('.card-title')
+    console.log(query, tuttiProdotti[0].innerText.toLowerCase().includes(query.toLowerCase()))
+
+    tuttiProdotti.forEach((name) => {
+        const cardCorrente = name.parentElement.parentElement.parentElement
+        if (!name.innerText.toLowerCase().includes(query.toLowerCase())) {
+            cardCorrente.style.display = 'none'
+        } else {
+            cardCorrente.style.display = 'block'
+        }
+    })
 }

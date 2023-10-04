@@ -11,19 +11,13 @@ const url = "https://striveschool-api.herokuapp.com/api/product/"
 
 
 // FUNZIONE PER ANDARE AD AGGIUNGERE UN PRODOTTO
-const addProduct = async () => {
-    const response = await fetch(url)
-    const data = await response.json()
-    console.log(data)
-    return data
-}
-
 const addToMain = async (event) => {
     event.preventDefault()
     const response = await fetch(url, {
         method: 'POST',
         headers: {
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFjNTM5YzM5MzI3YzAwMThkM2EyZTQiLCJpYXQiOjE2OTYzNTUyMjgsImV4cCI6MTY5NzU2NDgyOH0.C0j8PM2EFXdAsuRqqVA3LRQieDwSkG5G22Z_UDkCoJQ'
+            "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFjNTM5YzM5MzI3YzAwMThkM2EyZTQiLCJpYXQiOjE2OTYzNTUyMjgsImV4cCI6MTY5NzU2NDgyOH0.C0j8PM2EFXdAsuRqqVA3LRQieDwSkG5G22Z_UDkCoJQ',
+            "Content-Type": "application/json"
         },
         body: JSON.stringify({
             name: name.value,
@@ -45,7 +39,6 @@ const addToMain = async (event) => {
 
 
 // FUNZIONE PER FARE LOGOUT DALL'ACCOUNT ADMIN
-const logoutAdmin = (event) => {
-    let signOut = document.querySelector('#logout')
-    signOut = window.location.href = "../index.html"
+const logoutAdmin = () => {
+    window.location.href = "../index.html"
 }
