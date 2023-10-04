@@ -5,6 +5,9 @@
     font-family: 'Exo 2', sans-serif;
 }
 
+body {
+  background-color: blueviolet !important;
+}
 
 /* NAVBAR */
 svg {

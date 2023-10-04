@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>E-Commerce Marketplace - Backoffice</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <nav class="navbar bg-dark" data-bs-theme="dark">
+        <div class="container-fluid px-5">
+            <a href="#" class="navbar-brand">E-Commerce Marketplace 📱💻</a>
+            <div class="d-flex align-items-center">
+                <div class="nav-item dropdown">
+                    <button class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" data-bs-auto-close="outside">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                            class="bi bi-person-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                        </svg>
+                    </button>
+                    <form class="dropdown-menu dropdown-menu-lg-end">
+                        <div class="d-flex flex-column">
+                            <h5>Welcome back, Admin!</h5>
+                            <button id="logout" type="submit" class="btn btn-primary align-self-center"
+                                onclick="logoutAdmin()">Logout</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <h1>Add Product</h1>
+    <form class="row" onsubmit="addToMain(event)">
+        <div class="col">
+            <label>Name</label>
+            <input required id="name" type="text" class="form-control" placeholder="John Doe Live">
+        </div>
+        <div class="col">
+            <label>Description</label>
+            <input required id="description" type="text" class="form-control" placeholder="First time in Europe">
+        </div>
+        <div class="col">
+            <label>Brand</label>
+            <input required id="Brand" type="text" class="form-control" placeholder="First time in Europe">
+        </div>
+
+        <div class="col">
+            <label>Image</label>
+            <div class="d-flex align-items-center">
+                <span class="me-2">EUR</span>
+                <input required id="imageUrl" type="text" class="form-control" placeholder="50">
+            </div>
+        </div>
+        <div class="col">
+            <label>Price</label>
+            <div class="d-flex align-items-center">
+                <input required id="price" class="form-control">
+                <button class="ms-2 btn btn-primary">Add</button>
+            </div>
+        </div>
+    </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="backoffice.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -3,9 +3,9 @@ const url = "https://striveschool-api.herokuapp.com/api/product/"
 
 let contenuto = document.querySelector('.products .row')
 
-//CARICAMENTO DELLA PAGINA
- contenuto.innerHTML = /*html*/ 
-`
+// //CARICAMENTO DELLA PAGINA
+contenuto.innerHTML = /*html*/
+    `
 <div class="container pc">
 	<div class="loader"></div>
 	<div class="loader"></div>
@@ -16,7 +16,7 @@ let contenuto = document.querySelector('.products .row')
 
 
 
-// FUNZIONEE CHE ANDRÀ A POPOLARE LA PAGINA CON CIÒ CHE IO ANDRÒ AD INSERIRE NELL'ENDPOINT
+// FUNZIONE CHE ANDRÀ A POPOLARE LA PAGINA CON CIÒ CHE IO ANDRÒ AD INSERIRE NELL'ENDPOINT
 const getProducts = async () => {
     const response = await fetch(url, {
         method: 'GET',
@@ -60,15 +60,15 @@ const getProducts = async () => {
                     </div>
                 </div> `
     }).join('')
-    .finally(() => {contenuto.querySelector('.pc').remove()})
+        .finally(() => { contenuto.querySelector('.pc').remove() })
 }
 
 
 //AL CARICAMENTO DELLA PAGINA, DEVO POTER VEDERE TUTTI I PRODOTTI
 window.onload = () => {
-    try{
+    try {
         getProducts()
-    } catch(error){
+    } catch (error) {
         alert("Something went wrong")
     }
 }
@@ -79,7 +79,7 @@ const aggiungiAlCarrello = (name, price, id) => {
     product.style.border = '1px solid yellow'
     const cart = document.querySelector('.list')
     cart.innerHTML +=
-    `
+        `
         <li> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16" onclick='rimuoviDalCarrello(event, ${id}, ${price})'>
         <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
         </svg> ${name}, ${price}</li>
@@ -105,4 +105,18 @@ const svuotaCarrello = () => {
     document.querySelectorAll('.card').forEach(card => card.style.border = 'none')
     const totale = document.querySelector('.totalCart')
     totale.innerText = ''
+}
+
+
+// FUNZIONE CHE PERMETTE DI FARE IL LOGIN DELL'ADMIN CHE COLLEGA ALLA PAGINA DI BACKOFFICE
+const loginAdmin = (event) => {
+    let username = document.querySelector('#username')
+    let password = document.querySelector('#password')
+    let signIn = document.querySelector('#signIn')
+
+    if (username.value === "admin" && password.value === "password") {
+        signIn = window.location.href = "backoffice/backoffice.html"
+    } else {
+        alert("An invalid username and/or password has been entered! Try again")
+    }
 }
