@@ -1,3 +1,5 @@
+// WELCOME INTO THE GOD MODE
+
 // EVENTUALI VARIABILI GLOBALI
 const name = document.querySelector('#name')
 const description = document.querySelector('#description')

@@ -41,7 +41,7 @@ const displayProduct = (result) => {
         // CREAZIONE CARD CHE ANDRANNO A POPOLARE LA PAGINA
         return /*html*/ `
         <div class="col-6 col-md-3">
-                    <div class="card mb-5" id="product_${result._id}">
+                    <div class="card mb-5" id="product_${result.id}">
                         <img src='${result.imageUrl}' class="card-img-top">
                         <div class="card-body p-1">
                             <h5 class="card-title">${result.name}</h5>
@@ -55,14 +55,14 @@ const displayProduct = (result) => {
                                 LASCIATO COMMENTATO PER COMODITA' PER RIPRENDERLO DOPO (BACKOFFICE),
                                 L'UTENTE NON VEDE IL TASTO PER ELIMINARE UN PRODOTTO DALLA PAGINA -->
 
-                                <a href="dettagli/dettagli.html?id=${data.id}">
+                                <a href="dettagli/dettagli.html?id=${result.id}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                 <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                                 </svg>
                                 </a>
 
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16" onclick="aggiungiAlCarrello('${data.name}', '${data.price}', '${data.id}' )">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16" onclick="aggiungiAlCarrello('${result.name}', '${result.price}', '${result.id}' )">
                                 <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
                                 <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                                 </svg>
