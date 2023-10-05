@@ -3,6 +3,7 @@ const url = "https://striveschool-api.herokuapp.com/api/product/"
 
 let contenuto = document.querySelector('.products .row')
 
+
 // //CARICAMENTO DELLA PAGINA
 // contenuto.innerHTML = /*html*/
 //     `
@@ -23,7 +24,8 @@ const getProducts = async () => {
             method: 'GET',
             headers: {
                 "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFjNTM5YzM5MzI3YzAwMThkM2EyZTQiLCJpYXQiOjE2OTYzNTUyMjgsImV4cCI6MTY5NzU2NDgyOH0.C0j8PM2EFXdAsuRqqVA3LRQieDwSkG5G22Z_UDkCoJQ'
-            }
+            },
+            redirect: 'follow'
 
         })
         const result = await response.json()
@@ -45,7 +47,7 @@ const displayProduct = (result) => {
                             <h5 class="card-title">${result.name}</h5>
                             <p class="card-text">Brand: ${result.brand}</p>
                             <p class="card-text">${result.description}</p>
-                            <p class="card-text"> Prezzo: ${result.price}</p>
+                            <p class="card-text"> Price: ${result.price} €</p>
                             <div class="d-flex justify-content-around align-items-center pb-1 px-1">
                                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
                                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -76,7 +78,7 @@ const displayProduct = (result) => {
 //AL CARICAMENTO DELLA PAGINA, DEVO POTER VEDERE TUTTI I PRODOTTI
 window.onload = async () => {
     try {
-        const products = await getProducts();
+        const products = await getProducts()
         displayProduct(products)
     } catch (error) {
         alert("Something went wrong!!!")
