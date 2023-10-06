@@ -4,15 +4,15 @@ let contenuto = document.querySelector('.products .row')
 
 
 // CARICAMENTO DELLA PAGINA
-//  contenuto.innerHTML = /*html*/
-//      `
-//  <div class="container pc">
-//  	<div class="loader"></div>
-//  	<div class="loader"></div>
-//  	<div class="loader"></div>
-//  </div>
+//   contenuto.innerHTML = /*html*/
+//       `
+//   <div class="container pc">
+//   	<div class="loader"></div>
+//   	<div class="loader"></div>
+//   	<div class="loader"></div>
+//   </div>
 
-//  `
+//   `
 
 
 
@@ -86,12 +86,12 @@ window.onload = async () => {
 
 // FUNZIONE PER AGGIUNGERE AL CARRELLO I PRODOTTI SELEZIONATI
 const aggiungiAlCarrello = (name, price, _id) => {
-    const product = document.querySelector('#product_' + id)
+    const product = document.querySelector('#product_' + _id)
     product.style.border = '1px solid yellow'
     const cart = document.querySelector('.list')
     cart.innerHTML +=
         `
-        <li> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16" onclick='rimuoviDalCarrello(event, ${id}, ${price})'>
+        <li> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16" onclick='rimuoviDalCarrello(event, ${_id}, ${price})'>
         <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
         </svg> ${name}, ${price}</li>
     `
@@ -105,7 +105,7 @@ const rimuoviDalCarrello = (event, _id, price) => {
     event.target.closest("li").remove()
     const totale = document.querySelector('.totalCart')
     totale.innerText = (Number(totale.innerText) - Number(price)).toFixed(2)
-    const product = document.querySelector('#product_' + id)
+    const product = document.querySelector('#product_' + _id)
     product.style.border = 'none'
 }
 
