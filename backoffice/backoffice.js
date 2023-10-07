@@ -8,11 +8,6 @@ const imageUrl = document.querySelector('#imageUrl')
 const price = document.querySelector('#price')
 const productForm =  document.querySelector('#productForm')
 
-let myHeaders = new Headers();
-
-
-
-
 
 
 // FUNZIONE PER ANDARE AD AGGIUNGERE UN PRODOTTO

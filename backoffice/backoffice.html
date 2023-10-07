@@ -38,6 +38,8 @@
     </nav>
 
     <!-- MAIN -->
+
+    <!-- FORM PER AGGIUGNERE UN PRODOTTO -->
     <div class="container">
         <h1 class="my-5" style="color: yellow;">Add Product</h1>
         <form class="row flex-column" id="productForm">
@@ -53,7 +55,6 @@
                 <label for="brand">Brand</label>
                 <input required id="brand" type="text" class="form-control" placeholder="Brand">
             </div>
-
             <div class="col-6 mb-5">
                 <label for="image">Image</label>
                 <input required id="imageUrl" type="text" class="form-control" placeholder="Url">
@@ -62,12 +63,39 @@
                 <label for="price">Price</label>
                 <input required id="price" type="text" class="form-control" placeholder="0 €">
             </div>
-        <button class="col-1 ms-2 btn btn-primary" type="submit">Add</button>
+            <button class="col-1 ms-2 btn btn-primary" type="submit">Add</button>
         </form>
     </div>
 
 
 
+    <!-- FORM PER MODIFICARE UN PRODOTTO  -->
+    <div class="container">
+        <h1 class="my-5" style="color: yellow;">Edit Product</h1>
+        <form class="row flex-column" id="productForm2">
+            <div class="col-6 mb-5">
+                <label for="name">Name</label>
+                <input required id="name" type="text" class="form-control" placeholder="Name">
+            </div>
+            <div class="col-6 mb-5">
+                <label for="description">Description</label>
+                <input required id="description" type="text" class="form-control" placeholder="Description">
+            </div>
+            <div class="col-6 mb-5">
+                <label for="brand">Brand</label>
+                <input required id="brand" type="text" class="form-control" placeholder="Brand">
+            </div>
+            <div class="col-6 mb-5">
+                <label for="image">Image</label>
+                <input required id="imageUrl" type="text" class="form-control" placeholder="Url">
+            </div>
+            <div class="col-6 mb-5">
+                <label for="price">Price</label>
+                <input required id="price" type="text" class="form-control" placeholder="0 €">
+            </div>
+            <button class="col-1 ms-2 btn btn-primary" type="submit">Edit</button>
+        </form>
+    </div>
 
 
 

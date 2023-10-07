@@ -14,7 +14,7 @@ let contenuto = document.querySelector('.product .row')
 
 // `
 
-fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`)
+fetch(`https://striveschool-api.herokuapp.com/api/product/${_id}`)
     .then(response => response.json())
     .then(product => {
         console.log(product)
@@ -22,7 +22,7 @@ fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`)
             `
             <h1 class="mb-5" style="color: red">${product.name}</h1>
             <div class="d-flex justify-content-between">
-                <div class="col-6 col-md-3" id="book_${product.id}">
+                <div class="col-6 col-md-3" id="product_${product._id}">
                         <img src='${product.imageUrl}' class="card-img-top">
                 </div>
                 
@@ -42,7 +42,7 @@ fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`)
             `
     })
     .catch(error => console.log(error))
-    .finally(() => {contenuto.querySelector('.libro').remove()})
+    // .finally(() => {contenuto.querySelector('.libro').remove()})
 
 
 
