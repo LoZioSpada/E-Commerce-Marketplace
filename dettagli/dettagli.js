@@ -20,7 +20,7 @@ const getProduct = async (id) => {
         const response = await fetch(`https://striveschool-api.herokuapp.com/api/product/${id}`, {
             method: 'GET',
             headers: {
-                "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTFjNTM5YzM5MzI3YzAwMThkM2EyZTQiLCJpYXQiOjE2OTYzNTUyMjgsImV4cCI6MTY5NzU2NDgyOH0.C0j8PM2EFXdAsuRqqVA3LRQieDwSkG5G22Z_UDkCoJQ'
+                "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTM3ZjhiMDc3Y2RhYTAwMTQ2ZGYzODEiLCJpYXQiOjE2OTgxNjY5NjAsImV4cCI6MTY5OTM3NjU2MH0.AOqjXf5rTti35WVrUBED4FYDcqVnXTh4ET5T2_8V9Vw'
             },
             redirect: 'follow'
 
